@@ -31,15 +31,20 @@
 		<script src= "https://player.twitch.tv/js/embed/v1.js"></script>
 		<div id="SamplePlayerDivID"></div>
 		<script type="text/javascript">
-		  var options = {
-			width: 854,
-			height: 480,
-			channel: "akfkemwk",
-			// Only needed if this page is going to be embedded on other websites
-			parent: ["yyyymmddhhmmsss.github.io", "othersite.example.com"]
-		  };
-		  var player = new Twitch.Player("SamplePlayerDivID", options);
-		  player.setVolume(0.5);
+	
+		     var embed = new Twitch.Embed("twitch-embed", {
+        width: 854,
+        height: 480,
+        channel: "akfkemwk",
+        layout: "video",
+        autoplay: false,
+        // Only needed if this page is going to be embedded on other websites
+        parent: ["yyyymmddhhmmsss.github.io", "othersite.example.com"]
+      });
+		  embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+        var player = embed.getPlayer();
+        player.play();
+      });
 		</script>
 	</div>
 	<div id="livechat" style=" float: left; width:22%; height:100%;">
