@@ -67,11 +67,27 @@
 	<div id="mainContainer">
 
 		<div id="container">
+            <div id="twitch-embed"></div>
+            <script src="https://embed.twitch.tv/embed/v1.js">
+                </script>
 			<!--
 			<iframe frameborder="0" width="100%" height="100%" src="https://www.facebook.com/video/embed?video_id=483606149212677%2F" scrolling="no" allowfullscreen ></iframe>
 			//-->
-			<iframe id="iframe_id" width="100%" sandbox="allow-same-origin allow-scripts" height="100%" src="https://player.twitch.tv/?channel=akfkemwk&parent=yyyymmddhhmmsss.github.io" frameborder="0" allow="autoplay; "></iframe>
-			
+			<!-- <iframe id="iframe_id" width="100%" sandbox="allow-same-origin allow-scripts" height="100%" src="https://player.twitch.tv/?channel=akfkemwk&parent=yyyymmddhhmmsss.github.io" frameborder="0" allow="autoplay; "></iframe> -->
+			<script>
+                //  https://dev.twitch.tv/docs/embed
+                var embed = new Twitch.Embed("twitch-embed", {
+                //muted: true,
+                //autoplay: false,
+                theme: "dark",
+                width: "100%",
+                height: "100%",
+                channel: "bloom_lz_",
+                parent: ["codepen.io", "yyyymmddhhmmsss.github.io"]
+                });
+                console.log(embed)
+                embed.addEventListener("contextmenu", function() {console.log("test");});
+            </script>
             <div class="test"><div ></div></div>
 			
 		</div>
