@@ -98,7 +98,7 @@ $( document ).ready(function() {
                 top: 0;
                 left: 0;
                 height: 35px;
-                background-color: black;
+                background-color: transparent;
             }
 
             figure {
@@ -146,25 +146,6 @@ iframe#iframe_id {
                 <figcaption></figcaption>
                 <iframe id="iframe_id" width="100%" sandbox="allow-same-origin allow-scripts" height="100%" src="https://player.twitch.tv/?channel=xmtmxp&parent=yyyymmddhhmmsss.github.io" frameborder="0" allow="autoplay; "></iframe>
               </figure>
-			
-              <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
-              <div id="SamplePlayerDivID" style="display: none;"></div>
-              <script type="text/javascript">
-                var options = {
-                  width: 1,
-                  height: 1,
-                  autoplay: false,
-                  channel: "xmtmxp",
-                  // Only needed if this page is going to be embedded on other websites
-                  parent: ["yyyymmddhhmmsss.github.io", "othersite.example.com"]
-                };
-                var player = new Twitch.Player("SamplePlayerDivID", options);
-                player.setVolume(0.0);
-                player.addEventListener(Twitch.Embed.OFFLINE, function() {
-                console.log('The video is ready');
-                $('#container').hide();
-                });
-              </script>
 
             <div class="test"><div ></div></div>
 			
@@ -187,29 +168,7 @@ iframe#iframe_id {
                     U.chat('*').on('after.create', function( room, data ) {
                     // room.skin json 은 create 에서 정의되므로 after이여야된다.
                     room.skin.window.addEventListener("contextmenu", function (e) { e.preventDefault(); return false;});
-                    room.skin.menubar.add( {
-                        id : 'alert'
-                        , title : "its alert!!"
-                        , html : '<div>hi</div>'
-                        , condition : function ( room, data ) {
-                        if(room.my.auth > 1) // 멤버이상이라면 표시하지 않는다.
-                            return false;
-                        }
-                        , onClick : function( room, data ) {
-                            room.print('hi ! '+room.my.nick+'<br><span style="font-size:20px;">html야!!</span>');
-                        }     
-                    });
-
-                    room.skin.userMenu.add( {
-                        id : 'test'
-                        , text : '테스트야~'
-                        , onClick : function ( room, data ) {
-                            if(room.my.nick == data.target)
-                            alert(' 이건 나야! ');
-                            else
-                            alert( '안뇽 '+data.target );
-                        }
-                    });
+                    
                     });
                 </script>
             </u-chat>		
