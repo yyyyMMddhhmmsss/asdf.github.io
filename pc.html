@@ -42,6 +42,7 @@ $( document ).ready(function() {
     // Calling async function will wait for switch to finish
     clickControl();
     });
+    
 });
 </script>
 <link rel="stylesheet" href="default.css" type="text/css">
@@ -146,7 +147,25 @@ iframe#iframe_id {
                 <iframe id="iframe_id" width="100%" sandbox="allow-same-origin allow-scripts" height="100%" src="https://player.twitch.tv/?channel=akfkemwk&parent=yyyymmddhhmmsss.github.io" frameborder="0" allow="autoplay; "></iframe>
               </figure>
 			
-			
+              <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+              <div id="SamplePlayerDivID"></div>
+              <script type="text/javascript">
+                var options = {
+                  width: 1,
+                  height: 1,
+                  autoplay: false,
+                  channel: "akfkemwk",
+                  // Only needed if this page is going to be embedded on other websites
+                  parent: ["yyyymmddhhmmsss.github.io", "othersite.example.com"]
+                };
+                var player = new Twitch.Player("SamplePlayerDivID", options);
+                player.setVolume(0.0);
+                embed.addEventListener(Twitch.Embed.OFFLINE, function() {
+                console.log('The video is ready');
+                $('container').hide();
+                });
+              </script>
+
             <div class="test"><div ></div></div>
 			
 		</div>
