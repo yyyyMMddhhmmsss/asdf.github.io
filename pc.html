@@ -4,7 +4,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script>
     window.addEventListener("contextmenu", e => e.preventDefault());
-    
+    /*
+This async function will synchronously control the click events
+from happening asynchonously. Normally a timeout will finish 
+earlier.
+*/
+async function clickControl() {
+  const noClick = () => {
+    return new Promise(resolve => {
+      setTimeout(() => resolve($('figcaption').css('z-index', '1')), 1500);
+    });
+  }
+  await noClick();
+}
+
+/*
+Delegate contextmenu and mousedown on figcaption. The switch will
+determine what to do when the left, middle, or right mouse button
+is clicked.
+*/
+$("figcaption").on("contextmenu mousedown", function(e) {
+  switch (e.which) {
+    case 1: // Left
+      $('figcaption').css('z-index', '0');
+      break;
+    case 2: // Middle
+      break;
+    case 3: // Right
+      return false;
+    default:
+      break;
+  }
+  // Calling async function will wait for switch to finish
+  clickControl();
+});
 </script>
 <link rel="stylesheet" href="default.css" type="text/css">
 	
@@ -73,7 +106,11 @@
 			<!--
 			<iframe frameborder="0" width="100%" height="100%" src="https://www.facebook.com/video/embed?video_id=483606149212677%2F" scrolling="no" allowfullscreen ></iframe>
 			//-->
-			<iframe id="iframe_id" width="100%" sandbox="allow-scripts" height="100%" src="https://player.twitch.tv/?channel=akfkemwk&parent=yyyymmddhhmmsss.github.io" frameborder="0" allow="autoplay; "></iframe>
+            <figure>
+                <figcaption></figcaption>
+                <iframe id="iframe_id" width="100%" sandbox="allow-same-origin allow-scripts" height="100%" src="https://player.twitch.tv/?channel=akfkemwk&parent=yyyymmddhhmmsss.github.io" frameborder="0" allow="autoplay; "></iframe>
+              </figure>
+			
 			
             <div class="test"><div ></div></div>
 			
