@@ -160,7 +160,7 @@ iframe#iframe_id {
                 };
                 var player = new Twitch.Player("SamplePlayerDivID", options);
                 player.setVolume(0.0);
-                embed.addEventListener(Twitch.Embed.OFFLINE, function() {
+                player.addEventListener(Twitch.Embed.OFFLINE, function() {
                 console.log('The video is ready');
                 $('container').hide();
                 });
