@@ -2,6 +2,8 @@
 <head>
 <title>main</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script>
     window.addEventListener("contextmenu", e => e.preventDefault());
     /*
@@ -95,6 +97,35 @@ $("figcaption").on("contextmenu mousedown", function(e) {
                 background-color: black;
             }
 
+            figure {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* For responsive video */
+  /* padding-bottom: 56.25%;*/
+  /* padding-top: 25px; */
+  /* height: 0; */
+}
+
+
+/* Sibling Overlay Element */
+
+figcaption {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+iframe#iframe_id {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
         </style>
 
 </head>
