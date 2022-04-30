@@ -7,10 +7,9 @@
 
 <script >
 	$(window).on("load", function () {
-		
-			let head = $("#iframe_id").contents().find("head");
-			let css = '< style> [href*="akfkemwk"] { display:none;} [data-a-target*="player-twitch-logo-button"] { display:none} < /style>';
-			$(head).append(css);
+		var css1 =	document.createElement("style");
+		css1.innerHtml = '[href*="akfkemwk"] { display:none;} [data-a-target*="player-twitch-logo-button"] { display:none}';
+		$('iframe').contents().find("body").contents().append(css1);
 	});
 
 
