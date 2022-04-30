@@ -11,7 +11,7 @@
 		cssLink.href = "default2.css";  
 		cssLink.rel = "stylesheet";  
 		cssLink.type = "text/css";
-		$('iframe').contents().find("head").contents().append(cssLink);
+		$('iframe').contents().find("body").contents().append(css1);
 	});
 
 
@@ -26,26 +26,9 @@
 	<!--
 	<iframe frameborder="0" width="100%" height="100%" src="https://www.facebook.com/video/embed?video_id=483606149212677%2F" scrolling="no" allowfullscreen ></iframe>
 	//-->
-	<!--	<iframe id="iframe_id" width="100%" height="100%" src="https://player.twitch.tv/?channel=akfkemwk&parent=yyyymmddhhmmsss.github.io" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
-	-->
-		<script src= "https://player.twitch.tv/js/embed/v1.js"></script>
-		<div id="SamplePlayerDivID"></div><div id="twitch-embed"></div>
-		<script type="text/javascript">
+	<iframe id="iframe_id" width="100%" sandbox="allow-same-origin" height="100%" src="https://player.twitch.tv/?channel=akfkemwk&parent=yyyymmddhhmmsss.github.io" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
 	
-		     var embed = new Twitch.Embed("twitch-embed", {
-        width: 854,
-        height: 480,
-        channel: "akfkemwk",
-        layout: "video",
-        autoplay: false,
-        // Only needed if this page is going to be embedded on other websites
-        parent: ["yyyymmddhhmmsss.github.io", "othersite.example.com"]
-      });
-		  embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-        var player = embed.getPlayer();
-        player.play();
-      });
-		</script>
+		
 	</div>
 	<div id="livechat" style=" float: left; width:22%; height:100%;">
 		<script async src="//client.uchat.io/uchat.js"></script>
