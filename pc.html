@@ -6,12 +6,19 @@
 
 <script >
 	window.onload = function() {
+			console.log("content loaded");
 		document.querySelector("iframe").addEventListener( "load", function() {
 			console.log("iframe content loaded");
 			document.querySelector("[href*='akfkemwk']").style.display = "none";
 			document.querySelector("[data-a-target*='player-twitch-logo-button']").style.display = "none";
 		} );
 	}
+	function siteLoaded() {
+			console.log("iframe content loaded2222");
+			document.querySelector("[href*='akfkemwk']").style.display = "none";
+			document.querySelector("[data-a-target*='player-twitch-logo-button']").style.display = "none";
+	}
+
 </script>
 
 
