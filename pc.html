@@ -148,7 +148,7 @@ iframe#iframe_id {
               </figure>
 			
               <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
-              <div id="SamplePlayerDivID"></div>
+              <div id="SamplePlayerDivID" style="display: none;"></div>
               <script type="text/javascript">
                 var options = {
                   width: 1,
@@ -162,7 +162,7 @@ iframe#iframe_id {
                 player.setVolume(0.0);
                 player.addEventListener(Twitch.Embed.OFFLINE, function() {
                 console.log('The video is ready');
-                $('container').hide();
+                $('#container').hide();
                 });
               </script>
 
