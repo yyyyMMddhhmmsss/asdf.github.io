@@ -3,21 +3,19 @@
 <title>main</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="default.css" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script >
-	window.onload = function() {
-			console.log("content loaded");
-		document.querySelector("iframe").addEventListener( "load", function() {
-			console.log("iframe content loaded");
-			document.querySelector("[href*='akfkemwk']").style.display = "none";
-			document.querySelector("[data-a-target*='player-twitch-logo-button']").style.display = "none";
-		} );
-	}
-	function siteLoaded() {
-			console.log("iframe content loaded2222");
-			document.querySelector("[href*='akfkemwk']").style.display = "none";
-			document.querySelector("[data-a-target*='player-twitch-logo-button']").style.display = "none";
-	}
+	$(window).on("load", function () {
+		$("#iframe_id").on("load", function() {
+			let head = $("#iframe_id").contents().find("head");
+			let css = '< style> [href*="akfkemwk"] { display:none;} [data-a-target*="player-twitch-logo-button"] { display:none} < /style>';
+			$(head).append(css);
+		});
+	});
+
+
+
 
 </script>
 
@@ -28,7 +26,7 @@
 	<!--
 	<iframe frameborder="0" width="100%" height="100%" src="https://www.facebook.com/video/embed?video_id=483606149212677%2F" scrolling="no" allowfullscreen ></iframe>
 	//-->
-	<iframe width="100%" height="100%" src="https://player.twitch.tv/?channel=akfkemwk&parent=yyyymmddhhmmsss.github.io" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" onload="siteLoaded()"></iframe>
+	<iframe id="iframe_id" width="100%" height="100%" src="https://player.twitch.tv/?channel=akfkemwk&parent=yyyymmddhhmmsss.github.io" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" onload="siteLoaded()"></iframe>
 	
 		
 	</div>
