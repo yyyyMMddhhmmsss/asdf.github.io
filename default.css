@@ -118,7 +118,12 @@ input:active {
 
 
 div.test {
-	width: 240px;
+	width: 240px;    
+	position: absolute;
+    top: 17px;
+    height: 150px;
+    background-color: red;
+    left: 10px;
 }
 
 
